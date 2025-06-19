@@ -3,95 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seattle Yoga Pop-Ups 2025</title> 
-    <br>
+    <title>Seattle Yoga Pop-Ups 2025</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
         body {
             margin: 0;
             padding: 0;
-            background-color: #000;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            background: linear-gradient(135deg, #0a1922 0%, #0a1a1a 100%);
             color: white;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Playfair Display', serif;
             height: 100vh;
-            display: flex;
-            border: 1px solid white;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-
-        .text-section {
-            flex: 1;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding-bottom: 10vh;
-        }
-
-        .title {
-            font-size: 4vw;
-            font-weight: 300;
-            letter-spacing: 0.5vw;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .media-section {
-            flex: 1;
-            background-color: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            position: relative;
         }
 
-        .media-placeholder {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 1.5vw;
+        .title-container {
             text-align: center;
-            padding: 2vw;
+            z-index: 2;
+            background: rgba(10, 25, 34, 0.7);
+            padding: 3rem;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+        .main-title {
+            font-size: 4.5vw;
+            font-weight: 700;
+            letter-spacing: 0.3vw;
+            margin: 0;
+            animation: fadeIn 2s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 1.2vw;
+            letter-spacing: 0.5vw;
+            margin-top: 1vw;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 1s forwards;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .yoga-silhouette {
+            position: absolute;
+            background: no-repeat center/contain;
+            opacity: 0.7;
+            z-index: 1;
+            filter: drop-shadow(0 0 8px rgba(100, 221, 192, 0.5));
+            animation: floatYoga linear infinite;
+        }
+
+        @keyframes floatYoga {
+            0% { 
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                opacity: 0;
             }
-            
-            .title {
-                font-size: 8vw;
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { 
+                transform: translateY(-100vh) rotate(360deg) scale(1.2);
+                opacity: 0;
             }
-            
-            .media-section {
-                border-left: none;
-                border-top: 1px solid rgba(255, 255, 255, 0.2);
-            }
-            
-            .media-placeholder {
-                font-size: 4vw;
-            }
+        }
+
+        .mandala {
+            position: absolute;
+            width: 80vmin;
+            height: 80vmin;
+            opacity: 0.03;
+            background: radial-gradient(circle, transparent 50%, #64ddc0 100%);
+            border-radius: 50%;
+            animation: rotate 120s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="text-section">
-            <h1 class="title">SEATTLE YOGA<h1> <br>   
-            <br> <h1 class="title">Pop-Ups 2025</h1>
-            <p> Email: kim@yogawithkimberly.com </p>
-        </div>
-        <div class="media-section">
-            <div class="media-placeholder">
-                 <img src="add linked image" alt="add photo" class="yoga-image">
-            </div>
-        </div>
+    <div class="mandala"></div>
+    
+    <div class="title-container">
+        <h1 class="main-title">Seattle Yoga Pop-Ups 2025</h1>
+        <p class="subtitle">Indigenous Somatics</p>
     </div>
+
+    <script>
+        // Yoga pose silhouettes (simplified SVG paths)
+        const poses = [
+            // Warrior II
+            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMzAgMTBsLTEwIDQwbDIwIDEwbDEwLTMwbC0yMC0yMHpNNzAgMTBsMTAgNDBsLTIwIDEwTDUwIDMwTDcwIDEweiIgZmlsbD0iIzY0ZGRjMCIvPjwvc3ZnPg==",
+            // Tree Pose
+            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNTAgMTBsLTEwIDQwbDIwIDBsMTAtNDB6TTUwIDUwbC0xMCA0MGwyMCAwTDUwIDUweiIgZmlsbD0iIzY0ZGRjMCIvPjwvc3ZnPg==",
+            // Downward Dog
+            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNDAgMTBsLTIwIDQwbDIwIDEwTDUwIDMwTDQwIDEwekM2MCAxMGwyMCA0MGwtMjAgMTBMNTAgMzBMNjAgMTB6IiBmaWxsPSIjNjRkZGMwIi8+PC9zdmc+"
+        ];
+
+        // Create floating yoga silhouettes
+        for (let i = 0; i < 12; i++) {
+            const pose = document.createElement('div');
+            pose.classList.add('yoga-silhouette');
+            pose.style.backgroundImage = `url('${poses[i % poses.length]}')`;
+            pose.style.width = `${Math.random() * 80 + 50}px`;
+            pose.style.height = `${Math.random() * 80 + 50}px`;
+            pose.style.left = `${Math.random() * 100}vw`;
+            pose.style.animationDuration = `${Math.random() * 40 + 40}s`;
+            pose.style.animationDelay = `${Math.random() * 20}s`;
+            document.body.appendChild(pose);
+        }
+    </script>
 </body>
 </html>
